@@ -1,0 +1,251 @@
+.coffee{
+    &__title{
+        margin-bottom: clamp(0.5rem, calc(-1.318rem + 9.09vw), 4.5rem);
+    }
+
+    &__container{
+        position: relative;
+      
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            right: calc(100% - 264px);
+            width: 100vw;
+            height: 100%;
+            background-color: var( ---primary-color);
+        }
+    }
+
+    &__slider{
+        overflow: hidden;
+        padding: 10px;
+    }
+
+    &-slider-wrapper{
+        display: inline-flex;
+    }
+
+    &__slider-buttons{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        top: calc(50% + 30px);
+        left: -40px;
+        width: calc(100% + (40px * 2));
+        z-index: 0;
+    }
+
+    &__arrow-left{
+        transform: rotate(180deg);
+    }
+
+    &__arrow-right,
+    &__arrow-left{
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        border-radius: 50%;
+        background-color: var(---accent-color);
+        transition: box-shadow .3s linear;
+        position: relative;
+        
+
+        &::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url("../img/coffee/icon/arrow.svg") center center no-repeat;
+        }
+
+        @media (any-hover: hover) { 
+            &:hover{ 
+                box-shadow: 0px 0px 20px var(---accent-color);
+            } 
+        }
+    }
+}
+
+.coffee-slide{
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.coffee-slide-item{
+    display: flex;
+    gap: 45px;
+    background-color: #fff;
+    transition: box-shadow .3s linear;
+
+    @media (any-hover: hover) {
+        &:hover{
+            box-shadow: 0px 0px 10px rgba(205, 205, 205, 0.7)
+        }
+    }
+
+    &__img{
+        width: 235px;
+
+        img{
+            width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__info{
+        padding: 42px 0;
+    }
+
+    &__price{
+        font-weight: 600;
+        @include adaptiv-font(20, 16);
+        color: var(---accent-color);
+        margin-bottom: 8px;
+    }
+
+    &__title{
+        font-weight: 700;
+        @include adaptiv-font(24, 18);
+        color: #232C38;
+        margin-bottom: 24px;
+    }
+
+    &__text{
+        margin-bottom: 37px;
+    }
+
+    &__buttons{
+        display: flex;
+        gap: 29px;
+    }
+}
+
+@media(max-width: 1297px){
+    .coffee__slider-buttons{
+        width: 100%;
+        top: calc(15% + 25px);
+        left: 24px;
+        justify-content: flex-start;
+        gap: 30px;
+    }
+
+    .coffee-slide{
+        gap: 40px;
+    }
+}
+
+@media (max-width: 1180px){
+    .coffee-slide-item{
+        gap: 28px;
+
+        &__img{
+            width: 170px;
+        }
+    }
+}
+
+@media (max-width: 991.98px){
+    .coffee{
+        &__container{
+            &::before{
+                display: none;
+            }
+        }
+
+        &__slider{
+            overflow: hidden;
+        }
+
+        &__title{
+            margin-bottom: 120px;
+        }
+
+        &__slider-buttons{
+            top: calc(15% + 60px);
+        }
+    }
+
+    .coffee-slide-item{
+        box-shadow: 0px 0px 10px rgba(205, 205, 205, 0.7)
+    }
+}
+
+@media (max-width: 767.98px){
+    .coffee{
+        &__title{
+            margin-bottom: clamp(0.5rem, calc(-1.318rem + 9.09vw), 4.5rem)
+        }
+
+        &__slider-buttons{
+            display: none;
+        }
+        &__slider{
+            overflow: visible;
+        }
+    }
+
+    .coffee-slide{
+        gap: 15px;
+    }
+
+    .coffee-slide-item{
+        gap: 15px;
+
+        &__info{
+            padding: 20px 0 0 0;
+        }
+
+        &__buttons{
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 0 20px 12px 0;
+        }
+
+
+        &__title{
+            margin-bottom: 15px;
+            padding: 0 8px 0 0;
+        }
+
+        &__text{
+            margin-bottom: 20px;
+            padding: 0 8px 0 0;
+        }
+
+        .chi-tiet{
+            background-color: var(---primary-color);
+            padding: 6px 25px 8px 27px;
+            color: #F9FBFF;
+            border-radius: 19px;
+            font-weight: 300;
+        }
+    }
+}
+
+@media (max-width: 409px){
+    .coffee-slide-item{
+        position: relative;
+        padding-bottom: 60px;
+        &__img{
+            min-height: 190px;
+        }
+
+        &__buttons{
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 15px;
+            padding: 0 10px;
+            gap: 4px;
+        }
+    }
+}
